@@ -1,0 +1,50 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+/* Container for about us content */
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  width: 80%; /* Set a default width */
+  margin: 0 auto; /* Center content horizontally */
+  gap: 50px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .about-us-content {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+/* Mission Text Styles */
+.mission-text {
+  font-size: 1.25rem; /* Set a base font size */
+}
+
+/* Arabic Mission Text Styles */
+.mission-text.ar {
+  font-family: 'Noto Kufi Arabic', sans-serif; /* Use specific font for Arabic text */
+}
+
+/* French Mission Text Styles */
+.mission-text.fr {
+  font-family: 'Bebas Neue', sans-serif; /* Use specific font for French text */
+}
+
+/* Map Container Styles */
+.map-container iframe {
+  border-radius: 50px;
+  width: 90vw; /* Set a default width */
+  margin: 50px 0; /* Add margin for spacing */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .map-container iframe {
+    width: 94vw; /* Adjust width for smaller screens */
+    margin: 25px 0; /* Adjust margin for smaller screens */
+  }
+}

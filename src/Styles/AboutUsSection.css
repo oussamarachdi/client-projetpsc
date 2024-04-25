@@ -1,0 +1,75 @@
+.about-us {
+    display: flex; /* Allow side-by-side image and description */
+    padding: 5rem 0; /* Top and bottom padding */
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  @media (max-width:768px) {
+    .about-us{
+        flex-wrap: wrap;
+    }
+    .image-aboutus{
+        flex:1 1 auto  !important;
+        padding: 1rem;
+    }
+    .Description h1, /* Target headings within Description */
+    .Description h3, /* Target subheadings within Description */
+    .Description p { /* Target paragraphs within Description */
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+    line-height: 1.5; /* Adjust line spacing for readability */
+  }
+  }
+  
+ 
+  
+
+  
+  .Description {
+    flex: 1 1 auto; 
+    padding: 1rem; 
+  }
+  .image-aboutus {
+    flex: 0 0 50%; /* Set width to 50% on all screens */
+    padding: 1rem; /* Add some padding around the image */
+    height: auto;
+  }
+  .image-aboutus img {
+    width: 100%; /* Make image fill the container width */
+    height: auto; /* Maintain image aspect ratio */
+    border-radius: 10px; /* Rounded corners for aesthetics */
+  }
+  
+  .Description h1 {
+    font-size: 2rem; /* Adjust heading size as needed */
+    margin-bottom: 1rem; /* Add some space after the heading */
+  }
+  
+  .Description h3 {
+    font-size: 1.5rem; /* Adjust subheading size */
+    margin-bottom: 1rem; /* Add some space after the subheading */
+  }
+  
+  .Description p {
+    font-size: 1em; /* Adjust paragraph text size */
+    line-height: 1.5; /* Adjust line spacing for readability */
+    margin-bottom: 1rem; /* Add some space after the paragraph */
+  }
+  
+  .btn-aboutus {
+    background-color: #2196f3; /* Example button color */
+    color: white;
+    padding: 0.75rem 1.5rem; /* Adjust padding for button size */
+    border: none;
+    border-radius: 0.3em; /* Rounded corners for aesthetics */
+    cursor: pointer; /* Indicate clickable button */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make button text bolder for emphasis */
+  }
+  
+  .btn-aboutus:hover {
+    background-color: #1769aa; /* Darken button on hover */
+  }
+  

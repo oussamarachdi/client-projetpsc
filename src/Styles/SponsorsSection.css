@@ -1,0 +1,9 @@
+h2{
+    display: flex;
+    justify-content: center;
+}
+.cards-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
