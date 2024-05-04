@@ -1,48 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import '../Styles/Footer.css'
 import logo from '../images/logo.jpg'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
-  const [footerPosition, setFooterPosition] = useState('absolute');
 
-  useEffect(() => {
-    const handleFooterPosition = () => {
-      const footer = document.querySelector('.footer');
-      const bodyHeight = document.body.clientHeight;
-      const windowHeight = window.innerHeight;
-
-      if (bodyHeight < windowHeight) {
-        setFooterPosition('fixed');
-      } else {
-        setFooterPosition('absolute');
-      }
-    };
-
-    handleFooterPosition();
-
-    window.addEventListener('resize', handleFooterPosition);
-
-    return () => {
-      window.removeEventListener('resize', handleFooterPosition);
-    };
-  }, []);
   return (
     <div className='footer'>
 
         <section className='site-map'>
-            <h1>Site Map</h1>
-            <p>All our pages Below</p>
-            <ul>
-                <li><a href='/'>Home</a></li>
-                <li><a href='/'>About Us</a></li>
-                <li><a href='/'>Contact Us</a></li>
-                <li><a href='/'>Feature</a></li>
+            <h1>Plan du site</h1>
+            <p>Toutes nos pages ci-dessous</p>
+           <ul>
+                <li><NavLink to='/' className='footer-link'>Acceuil</NavLink></li>
+                <li><NavLink to='/about-us' className='footer-link'>À propos de nous</NavLink></li>
+                <li><NavLink to='/donate' className='footer-link'>Faites un don</NavLink></li>
             </ul>
         </section>
         <section className='info'>
             <img src={logo}/>
-            <p><span style={{'fontWeight':'bold', 'color':'white'}}>phone number :</span> +216 99 275 200</p>
-            <p><span style={{'fontWeight':'bold', 'color':'white'}}>email address : </span>rachdioussama33@gmail.com</p>
+            <p><span style={{'fontWeight':'bold', 'color':'white'}}>Numéro de Téléphone :</span> +216 99 275 200</p>
+            <p><span style={{'fontWeight':'bold', 'color':'white'}}>Address e-mail : </span>helpinghand.psc@gmail.com</p>
         </section>
     </div>
   )

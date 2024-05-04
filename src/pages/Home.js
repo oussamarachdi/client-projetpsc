@@ -3,6 +3,7 @@ import '../Styles/Home.css'
 import AboutUsSection from '../components/AboutUsSection'
 import Banner from '../components/Banner'
 import SponsorsSection from '../components/SponsorsSection'
+import TeamSection from '../components/TeamSection'
 
 const Home = () => {
   return (
@@ -12,6 +13,8 @@ const Home = () => {
         <AboutUsSection />
         <span className='line'></span>
         <SponsorsSection />
+        <span className='line'></span>
+        <TeamSection />
 
     </div>
   )

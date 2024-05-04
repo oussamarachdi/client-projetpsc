@@ -63,7 +63,7 @@ const DragDropImageUploader = ({onImageChange}) => {
 
     }
   return (
-    <div className='card'>
+    <div className='card-image'>
         <div className='top'>
             <p>Drag & Drop image uploading</p>
         </div>

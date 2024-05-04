@@ -13,13 +13,24 @@
 .card {
     margin:  3rem;
     perspective: 1000px;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
     box-shadow: 0px 0px 43px 1px rgba(0,0,0,0.73);
     -webkit-box-shadow: 0px 0px 43px 1px rgba(0,0,0,0.73);
     -moz-box-shadow: 0px 0px 43px 1px rgba(0,0,0,0.73);
 }
 .card-front{
     grid-area: 1 / 1;
+    
 }
+.card-front img {
+    width: 100% !important;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+
 
 .card-back{
     grid-area: 1/1;
@@ -28,6 +39,10 @@
     margin-right: auto;
     transform: rotateY(180deg);
     visibility: hidden;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .card:hover .card-container{

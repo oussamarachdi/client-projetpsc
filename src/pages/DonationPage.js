@@ -27,6 +27,9 @@ const DonationPage = () => {
     inValidAvailableTime: ''
   });
 
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   const handleAddress = (data) => {
     setAddress({
       lat: data[0],
@@ -53,6 +56,7 @@ const DonationPage = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setSubmitting(true);
     // VERIFY THE SUBMISSION
     // Initialize error object
     let newErrors = {
@@ -63,7 +67,6 @@ const DonationPage = () => {
     };
     // Check for empty fields
     if (!type || !phone || !address.lat || !address.lng || !name || !quartier) {
-      console.log(type, name, phone, address)
       newErrors.EmptyFields = 'You should Fill The Required Fields!!!';
     }
   
@@ -110,6 +113,9 @@ const DonationPage = () => {
         nbError = nbError + 1 
       }
     }
+    if(nbError > 0){
+      setSubmitting(false)
+    }
    
 
     // Condition if the Submission is Valid or Not
@@ -133,10 +139,11 @@ const DonationPage = () => {
             'Content-Type':'multipart/form-data'
           }
         })
-        console.log(response.data)
+        setSubmitted(true);
       } catch(error){
         console.log(error);
       }
+    setSubmitting(false);
       
       
     }
@@ -146,30 +153,36 @@ const DonationPage = () => {
   return (
     <div>
       <div className='header'>
-        <h1>About Us</h1>
+        <h1>Faites un don ici</h1>
       </div>
       <section className='Donation-Section'>
 
 
         <div className='donation-information'>
-          <h3>Donation Informations</h3>
+          <h3>Informations sur les dons</h3>
         <form  onSubmit={handleSubmit}  encType='multipart/form-data'>
-        <div>
+        <div className='field'>
           <label htmlFor='NP'>Nom et Prénom:</label>
           <input type='text' placeholder='Nom et Prénom' onChange={(event) => setName(event.target.value)}/>
-          {(errors.inValidName && !errors.EmptyFields) ? <span>{errors.inValidName}</span> : ''}
+          {(errors.inValidName && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidName}</span> : ''}
         </div>
-        <label htmlFor='phone'>Phone Number : </label>
-          <input type='text' id='phone' name='phone' placeholder='+216 (XXX) XXX-XXXX' onChange={(event) => setPhone(event.target.value)}/>
-          {(errors.inValidPhoneNumber && !errors.EmptyFields) ? <span>{errors.inValidPhoneNumber}</span> : ''}
+        <div className='field'>
+        <label htmlFor='phone'>Numéro de Téléphone : </label>
+          <input type='text' id='phone' name='phone' placeholder='+216 (XXX) XXX-XXXX' onChange={(event) => setPhone(event.target.value)} style={{width:'90%'}}/>
+          {(errors.inValidPhoneNumber && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidPhoneNumber}</span> : ''}
+
+        </div>
         
+        <div className='field'>
         <select name='typeDon' id='typeDon' onChange={(event) => setType(event.target.value)}>
-            <option value="">Type Of Donation</option>
+            <option value="">Type de Don</option>
             <option value="Medicament">Medicament</option>
             <option value="Vetement">Vetement</option>
           </select>
-
-          <select name='quartier' id='quartier' onChange={(event) => setType(event.target.value)}>
+        </div>
+        
+        <div className='field'>
+        <select name='quartier' id='quartier' onChange={(event) => setQuartier(event.target.value)}>
             <option value="">Votre quartier</option>
             <option value="Akouda">Akouda</option>
             <option value="Bouficha">Bouficha</option>
@@ -187,24 +200,30 @@ const DonationPage = () => {
             <option value="Sousse Riadh">Sousse Riadh</option>
             <option value="Sousse Sidi Abdelhamid">Sousse Sidi Abdelhamid</option>
           </select>
-
+        </div>
+          
+          <div className='field'>
           <DragDropImageUploader onImageChange={handleImageChange}/>
-          {(errors.inValidImage && !errors.EmptyFields) ? <span>{errors.inValidImage}</span> : ''}
+          {(errors.inValidImage && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidImage}</span> : ''}
+          </div>
+          
 
           
-          <div>
-            <label>Click the Map to get your position</label>
+          <div className='field'>
+            <label>Cliquez sur la carte pour obtenir votre position</label>
             <MyMap onAdressChange={handleAddress}/>
           </div>
-          {errors.EmptyFields ? <span>{errors.EmptyFields}</span> : ''}
           
-          <div className='date'>
-            <label htmlFor='time'>Available Time :</label>
+          
+          <div className='date field'>
+            <label htmlFor='time'>Temps disponible :</label>
             <DateRangeComp onDateChange={handleAvailableTime}/>
-            {(errors.inValidAvailableTime && !errors.EmptyFields) ? <span>{errors.inValidAvailableTime}</span> : ''}
+            {(errors.inValidAvailableTime && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidAvailableTime}</span> : ''}
           </div>
-          <input type='submit' className='btn-submit' value="Submit"/>
-          
+          <input type='submit' className='btn-submit' value="Submit" disabled={submitting}/>
+          {submitting &&  <span>Loading...</span>}
+          {errors.EmptyFields ? <span className='erreur'>{errors.EmptyFields}</span> : ''}
+          {submitted && <span>Email sent successfully!</span>}
         </form>
           
         </div>

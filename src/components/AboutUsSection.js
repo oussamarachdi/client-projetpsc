@@ -9,12 +9,11 @@ const AboutUsSection = () => {
             <img src={aboutus} alt="About Us" />
         </div>
         <div className='Description'>
-            <h1>About Us Example</h1>
-            <h3>About Us Sub-title Description</h3>
+            <h1>À propos de nous</h1>
             <p className='Description'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ante dolor, scelerisque id feugiat eu, consequat quis dui. Etiam at mattis ante.
+            Bienvenue sur Helping-Hand : un groupe d’étudiants engagés dans l’innovation sociale et la digitalisation. Notre mission : offrir une plateforme sécurisée pour faciliter les dons aux plus démunis. Rejoignez-nous pour créer un avenir inclusif et solidaire grâce à la technologie.
             </p>
-            <NavLink to="/about-us" className='btn-aboutus'>Read More</NavLink>                                                                                                             
+            <NavLink to="/about-us" className='btn-aboutus'>En savoir plus</NavLink>                                                                                                             
         </div>
     </div>
   )

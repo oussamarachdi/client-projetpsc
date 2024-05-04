@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './App.css'
 import AboutUSPage from './pages/AboutUSPage';
-import Test from './pages/Test';
 function App() {
 
   return (

@@ -7,7 +7,7 @@ import '../Styles/SponsorsSection.css'
 const SponsorsSection = () => {
   return (
     <div className='sponsor'>
-        <h2 className='title'>Our Sponsors</h2>
+        <h2 className='title'>Notre Partenaire</h2>
         <section className='cards-section'>
             <FlipCardSponsor imageSrc={sponsor1} name={'الكشافة التونسية جهة سوسة'}/>
             <FlipCardSponsor imageSrc={sponsor2} name={'Ecole Polytechnique Sousse'}/>

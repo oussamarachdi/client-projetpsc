@@ -5,16 +5,16 @@ const AboutUSPage = () => {
   return (
     <div className='about-us-page'>
         <div className='header'>
-            <h1>About-Us</h1>
+            <h1>À propos de nous</h1>
         </div>
 
         <div className='about-us-content'>
           <div className='mission-text'>
           <p className='fr'>
-            Un groupe d'étudiants motivés se réunit dans une salle de classe, animés par une seule idée : faire une différence dans la vie des autres. Leur mission est claire : concevoir un projet caritatif qui aura un impact positif sur la communauté. Les discussions animées résonnent dans la salle alors qu'ils planifient les détails, partageant leurs idées avec enthousiasme. Certains écrivent frénétiquement sur des tableaux blancs, tandis que d'autres tapotent sur leurs ordinateurs portables, recherchant des informations cruciales. Malgré les défis qui les attendent, leur détermination ne faiblit pas. Ils sont unis par un but commun : réussir pour aider ceux dans le besoin.
-            </p>
+          Bienvenue, nous sommes un groupe d'étudiants. Nous avons réalisé un projet social caritatif représenté par un site Web qui collecte des dons tels que des vêtements, de la nourriture et tout ce qui dépasse ce qui est nécessaire, cela peut aider les nécessiteux, et en coopération avec. les Scouts Régionaux de Sousse qui se chargeront de collecter ces dons et de les distribuer aux nécessiteux.          </p>
+            <br />
             <p className='ar'>
-            مجموعة من الطلاب المتحمسين يجتمعون في قاعة دراسية، محمومين بفكرة واحدة: إحداث فرق في حياة الآخرين. مهمتهم واضحة: تصميم مشروع خيري سيكون له تأثير إيجابي على المجتمع. ترتدى النقاشات الحماسية في القاعة بينما يخططون للتفاصيل، مشاركين أفكارهم بحماس. يكتب البعض بشكل مفرط على السبورات البيضاء، بينما يقوم البعض الآخر بالتحقق من معلومات حاسمة على أجهزة الكمبيوتر المحمولة. على الرغم من التحديات التي تنتظرهم، إلا أن عزيمتهم لا تتزعزع. إنهم متحدون من خلال هدف مشترك: النجاح لمساعدة أولئك الذين في حاجة.
+            مرحبا بكم، نحن مجموعة من الطلبة قمنا بإنجاز مشروع إجتماعي خيري متمثل في موقع إلكتروني يقوم بجمع تبرعات كملابس و طعام و كل ما زاد عن الحاجة و بإمكانه مساعدة المحتاج و بالتعاون مع الكشافه الجهوية بسوسة التي ستتكفل بجمع هاته التبرعات وتوزيعها على المحتاجين
             </p>
           </div>
         
