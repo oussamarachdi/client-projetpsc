@@ -20,7 +20,6 @@ const DateRangeComp = (props) => {
     const [open, setOpen] = useState(false)
     const handleSelect = (range) => {
         setRange([range.selection])
-        console.log([range.selection])
         props.onDateChange([range.selection.startDate, range.selection.endDate])
     }
   return (

@@ -39,11 +39,26 @@
     color: #333;
   }
 
-  .erreur {
-    color: #f00;
-    margin-bottom: 15px;
-    font-size: 14px;
-  }
+/* Error message styling */
+.erreur {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Success message styling */
+.success {
+  color: green;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Loading message styling */
+.loading {
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
 
   /* Form input styles */
   .donation-information label{

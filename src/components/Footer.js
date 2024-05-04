@@ -14,7 +14,7 @@ const Footer = () => {
            <ul>
                 <li><NavLink to='/' className='footer-link'>Acceuil</NavLink></li>
                 <li><NavLink to='/about-us' className='footer-link'>À propos de nous</NavLink></li>
-                <li><NavLink to='/donate' className='footer-link'>Faites un don</NavLink></li>
+                <li><NavLink to='/donate' className='footer-link'>faire un don</NavLink></li>
             </ul>
         </section>
         <section className='info'>
