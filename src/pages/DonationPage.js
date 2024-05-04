@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/DonationPage.css'
 import MyMap from '../components/MyMap'
 import axios from "axios"
@@ -50,9 +50,10 @@ const DonationPage = () => {
       setErrors({...errors, inValidImage:"Invalid image type.Please Select Only Images"})
       return;
     }
-    setImages((prevImages) => ([...prevImages, ...validImages]))
-    
+    setImages(validImages)
+    console.log(validImages);
   }
+
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -116,7 +117,6 @@ const DonationPage = () => {
     if(nbError > 0){
       setSubmitting(false)
     }
-   
 
     // Condition if the Submission is Valid or Not
     if (!(nbError > 0)) {
@@ -133,12 +133,16 @@ const DonationPage = () => {
         images.forEach((image) => {
           formData.append('img', image)
         }); // Assuming imageFile is a File object
-
-        const response = await axios.post("http://localhost:4000/api", formData,{      
+        let baseUrl =
+          process.env.REACT_APP_ENV === "develop"
+            ? process.env.REACT_APP_BASE_DEV_URL
+            : process.env.REACT_APP_BASE_PROD_URL;
+        const response = await axios.post(baseUrl+"/api", formData,{      
           headers : {
             'Content-Type':'multipart/form-data'
           }
         })
+        if(response)
         setSubmitted(true);
       } catch(error){
         console.log(error);
