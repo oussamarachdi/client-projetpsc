@@ -25,6 +25,7 @@ const DateRangeComp = (props) => {
   return (
     <div className='calenderWrap'>
         <input 
+            id={props.id}
             value={`${format(range[0].startDate, "MM/dd/yyyy")} to ${format(range[0].endDate, "MM/dd/yyyy")}`}
             readOnly
             className='inputBox'

@@ -175,7 +175,7 @@ const DonationPage = () => {
             <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className='field'>
               <label htmlFor='NP'>Nom et Prénom:</label>
-              <input type='text' placeholder='Nom et Prénom' onChange={(event) => setName(event.target.value)}/>
+              <input type='text' name='NP' id='NP' placeholder='Nom et Prénom' onChange={(event) => setName(event.target.value)}/>
               {(errors.inValidName && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidName}</span> : ''}
             </div>
             <div className='field'>
@@ -225,18 +225,18 @@ const DonationPage = () => {
               <DragDropImageUploader onImageChange={handleImageChange}/>
               {(errors.inValidImage && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidImage}</span> : ''}
             </div>
-
+            <br></br>
             <div className='field'>
-              <label>Cliquez sur la carte pour obtenir votre position</label>
+              <p>Cliquez sur la carte pour obtenir votre position</p>
               <MyMap onAdressChange={handleAddress}/>
             </div>
 
             <div className='date field'>
               <label htmlFor='time'>Temps disponible :</label>
-              <DateRangeComp onDateChange={handleAvailableTime}/>
+              <DateRangeComp onDateChange={handleAvailableTime} id={'time'}/>
               {(errors.inValidAvailableTime && !errors.EmptyFields) ? <span className='erreur'>{errors.inValidAvailableTime}</span> : ''}
             </div>
-            <input type='submit' className='btn-submit' value="Submit" disabled={submitting}/>
+            <input type='submit' name='submit-btn' id='submit-btn' className='btn-submit' value="Submit" disabled={submitting}/>
             {submitting &&  <span className='loading'>Loading...</span>}
             {errors.EmptyFields ? <span className='erreur'>{errors.EmptyFields}</span> : ''}
           </form>
