@@ -1,0 +1,38 @@
+.feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .success-message, .error-message {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .success-message h2, .error-message h2 {
+    color: #2ecc71;
+    margin-bottom: 10px;
+  }
+  
+  .success-message p, .error-message p {
+    margin-bottom: 15px;
+  }
+  
+  .btn-return {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-return:hover {
+    background-color: #2980b9;
+  }
+  

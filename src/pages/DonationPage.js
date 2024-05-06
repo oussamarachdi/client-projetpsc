@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../Styles/DonationPage.css';
 import MyMap from '../components/MyMap';
 import axios from "axios";
 import DragDropImageUploader from '../components/DragDropImageUploader';
 import DateRangeComp from '../components/DateRangeComp';
+import Feedback from '../components/FeedBack';
 
 const DonationPage = () => {
   const [name, setName] = useState('');
@@ -12,6 +13,7 @@ const DonationPage = () => {
   const [images, setImages] = useState([]);
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
   const [availableTime, setAvailableTime] = useState({
     startDate: '',
     endDate: ''
@@ -30,7 +32,6 @@ const DonationPage = () => {
   });
 
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const handleAddress = (data) => {
     setAddress({
@@ -60,6 +61,10 @@ const DonationPage = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setErrors({...errors, inValidEmail: emailRegex.test(event.target.value) ? '' : 'Invalid email address'});
   };
+
+  const handleReturnToForm = () => {
+    window.location.reload();
+  }
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -141,15 +146,16 @@ const DonationPage = () => {
         process.env.REACT_APP_ENV === "develop"
           ? process.env.REACT_APP_BASE_DEV_URL
           : process.env.REACT_APP_BASE_PROD_URL;
-      const response = await axios.post('http://localhost:4000/api', formData, {
+      const response = await axios.post(`${baseUrl}/api`, formData, {
         headers : {
           'Content-Type':'multipart/form-data'
         }
       })
       if(response)
-      setSubmitted(true);
+      setEmailSent(true);
     } catch(error){
       console.log(error);
+      setEmailSent(false);
     }
     setSubmitting(false);
   };
@@ -161,8 +167,12 @@ const DonationPage = () => {
       </div>
       <section className='Donation-Section'>
         <div className='donation-information'>
-          <h3>Informations sur les dons</h3>
-          <form onSubmit={handleSubmit} encType='multipart/form-data'>
+          
+          {
+            emailSent ? (<Feedback emailSent={emailSent} onReturnToForm={handleReturnToForm}/>) : 
+            <>
+            <h3>Informations sur les dons</h3>
+            <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className='field'>
               <label htmlFor='NP'>Nom et Prénom:</label>
               <input type='text' placeholder='Nom et Prénom' onChange={(event) => setName(event.target.value)}/>
@@ -229,8 +239,10 @@ const DonationPage = () => {
             <input type='submit' className='btn-submit' value="Submit" disabled={submitting}/>
             {submitting &&  <span className='loading'>Loading...</span>}
             {errors.EmptyFields ? <span className='erreur'>{errors.EmptyFields}</span> : ''}
-            {(!submitting && submitted) && <span className='success'>Email sent successfully!</span>}
           </form>
+            </>
+          }
+          
         </div>
       </section>
     </div>

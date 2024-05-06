@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Styles/Footer.css'
-import logo from '../images/logo.jpg'
+import logo from '../images/logo.png'
 import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
@@ -18,8 +18,7 @@ const Footer = () => {
             </ul>
         </section>
         <section className='info'>
-            <img src={logo}/>
-            <p><span style={{'fontWeight':'bold', 'color':'white'}}>Numéro de Téléphone :</span> +216 99 275 200</p>
+            <img src={logo} alt='logo'/>
             <p><span style={{'fontWeight':'bold', 'color':'white'}}>Address e-mail : </span>helpinghand.psc@gmail.com</p>
         </section>
     </div>

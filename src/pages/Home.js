@@ -4,6 +4,7 @@ import AboutUsSection from '../components/AboutUsSection'
 import Banner from '../components/Banner'
 import SponsorsSection from '../components/SponsorsSection'
 import TeamSection from '../components/TeamSection'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <SponsorsSection />
         <span className='line'></span>
         <TeamSection />
+        <Footer />
 
     </div>
   )
